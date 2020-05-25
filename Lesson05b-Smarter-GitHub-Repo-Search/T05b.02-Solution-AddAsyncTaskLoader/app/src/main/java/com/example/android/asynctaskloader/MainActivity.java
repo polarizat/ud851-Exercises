@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements
         /*
          * Initialize the loader
          */
-        getSupportLoaderManager().initLoader(GITHUB_SEARCH_LOADER, null, this);
+        LoaderManager.getInstance(this).initLoader(GITHUB_SEARCH_LOADER, null, this);
     }
 
     /**
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements
          * the LoaderManager to restart it.
          */
         // COMPLETED (21) Call getSupportLoaderManager and store it in a LoaderManager variable
-        LoaderManager loaderManager = getSupportLoaderManager();
+        LoaderManager loaderManager = LoaderManager.getInstance(this);
         // COMPLETED (22) Get our Loader by calling getLoader and passing the ID we specified
         Loader<String> githubSearchLoader = loaderManager.getLoader(GITHUB_SEARCH_LOADER);
         // COMPLETED (23) If the Loader was null, initialize it. Else, restart it.
