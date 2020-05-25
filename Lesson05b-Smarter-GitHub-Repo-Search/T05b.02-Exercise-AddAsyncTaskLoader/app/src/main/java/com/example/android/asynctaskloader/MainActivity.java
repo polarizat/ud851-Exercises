@@ -39,7 +39,8 @@ import java.io.IOException;
 import java.net.URL;
 
 // TODO (1) implement LoaderManager.LoaderCallbacks<String> on MainActivity
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
+public class MainActivity extends AppCompatActivity implements
+        LoaderManager.LoaderCallbacks<String> {
 
     /* A constant to save and restore the URL that is being displayed */
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
@@ -98,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String githubQuery = mSearchBoxEditText.getText().toString();
 
         // TODO (17) If no search was entered, indicate that there isn't anything to search for and return
+        if (TextUtils.isEmpty(githubQuery)) {
+            mUrlDisplayTextView.setText("No query entered, nothing to search for.");
+            return;
+        }
 
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
@@ -160,7 +165,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return new AsyncTaskLoader<String>(this) {
 
             // TODO (5) Override onStartLoading
-            // Within onStartLoading
             @Override
             protected void onStartLoading() {
                 super.onStartLoading();
@@ -170,7 +174,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }
                 // TODO (7) Show the loading indicator
                 mLoadingIndicator.setVisibility(View.VISIBLE);
-                // TODO (8) Force a load ???
+                // TODO (8) Force a load
+                forceLoad();
                 // END - onStartLoading
 
             }
