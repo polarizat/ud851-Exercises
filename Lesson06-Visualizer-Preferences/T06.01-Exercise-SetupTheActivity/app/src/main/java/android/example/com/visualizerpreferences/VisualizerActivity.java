@@ -22,9 +22,9 @@ import android.example.com.visualizerpreferences.AudioVisuals.AudioInputReader;
 import android.example.com.visualizerpreferences.AudioVisuals.VisualizerView;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 public class VisualizerActivity extends AppCompatActivity {
@@ -122,6 +122,8 @@ public class VisualizerActivity extends AppCompatActivity {
     // TODO (3) In visualizer_menu.xml create a menu item with a single item. The id should be
     // "action_settings", title should be saved in strings.xml, the item should never
     // be shown as an action, and orderInCategory should be 100
+
+
 
     // TODO (5) Add the menu to the menu bar
     // TODO (6) When the "Settings" menu item is pressed, open SettingsActivity

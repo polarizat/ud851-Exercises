@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 // TODO (2) If mGithubJson is not null, deliver that result. Otherwise, force a load
                 if (mGithubJson != null) {
-                    return;
+                    deliverResult(mGithubJson);
                 } else {
                     forceLoad();
                 }
